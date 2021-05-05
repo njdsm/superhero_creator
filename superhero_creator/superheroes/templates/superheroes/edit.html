@@ -8,13 +8,13 @@
     <title>Edit {{superhero.superhero_name}}</title>
 </head>
 <body>
-<form action="{% url 'superheroes:edit' %}" method="post">
+<form action="{% url 'superheroes:edit' superhero.id %}" method="post">
     {% csrf_token %}
-    Name:<input type="text" value={{superhero.superhero_name}} name="superhero_name" id="superhero_name"><br>
-    Alter Ego:<input type="text" value={{superhero.alter_ego_name}} name="alter_ego_name" id="alter_ego_name"><br>
-    Primary Ability:<input type="text" value={{superhero.primary_ability}} name="primary_ability" id="primary_ability"><br>
-    Alternate Ability:<input type="text" value={{superhero.alternate_ability}} name="alternate_ability" id="alternate_ability"><br>
-    Catchphrase:<input type="text" value={{superhero.catchphrase}} name="catchphrase" id="catchphrase"><br>
+    Name:<input type="text" value='{{superhero.superhero_name}}' name="superhero_name" id="superhero_name"><br>
+    Alter Ego:<input type="text" value='{{superhero.alter_ego_name}}' name="alter_ego_name" id="alter_ego_name"><br>
+    Primary Ability:<input type="text" value='{{superhero.primary_ability}}' name="primary_ability" id="primary_ability"><br>
+    Alternate Ability:<input type="text" value='{{superhero.alternate_ability}}' name="alternate_ability" id="alternate_ability"><br>
+    Catchphrase:<input type="text" value='{{superhero.catchphrase}}' name="catchphrase" id="catchphrase"><br>
     <input type="submit" value="Update!">
 </form>
 </body>

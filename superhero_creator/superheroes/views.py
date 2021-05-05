@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import Superhero
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponseRedirect
 from django.urls import reverse
 # Create your views here.
 
@@ -42,5 +42,15 @@ def edit(request, superhero_id):
     context = {
         'superhero': superhero
     }
-    return render(request, 'superheroes/edit.html', context)
+    if request.method == 'POST':
+        superhero.superhero_name = request.POST.get('superhero_name')
+        superhero.alter_ego_name = request.POST.get('alter_ego_name')
+        superhero.primary_ability = request.POST.get('primary_ability')
+        superhero.alternate_ability = request.POST.get('alternate_ability')
+        superhero.catchphrase = request.POST.get('catchphrase')
+        superhero.save()
+        return HttpResponseRedirect(reverse('superheroes:index'))
+    else:
+        return render(request, 'superheroes/edit.html', context)
+
 
