@@ -16,6 +16,7 @@
     <li><h2>Alternate Ability: {{specific_superhero.alternate_ability}} </h2></li>
     <li><h2>Catchphrase: {{specific_superhero.catchphrase}} </h2></li>
 </ul>
-<div><a href="{% url 'superheroes:edit' specific_superhero.id %}">Edit details</a></div>
+<div><a href="{% url 'superheroes:edit' specific_superhero.id %}"><input type="button" value="Edit details"></a></div>
+<div><a href="{% url 'superheroes:index' %}"><input type="button" value="Back to main page"></a></div>
 </body>
 </html>
