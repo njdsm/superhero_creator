@@ -54,3 +54,14 @@ def edit(request, superhero_id):
         return render(request, 'superheroes/edit.html', context)
 
 
+def delete(request, superhero_id):
+        superhero = Superhero.objects.get(id=superhero_id)
+        context = {
+            'superhero': superhero
+        }
+        superhero.delete()
+        return HttpResponseRedirect(reverse('superheroes:index'))
+
+
+
+
